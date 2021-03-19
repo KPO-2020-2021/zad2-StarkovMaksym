@@ -10,16 +10,24 @@ using namespace std;
  * Zawiera ona tresc latwego testu.
  */
 static WyrazenieZesp  TestLatwy[] =
-  { {{2,1}, Op_Dodaj, {1,2}},
-    {{1,0}, Op_Odejmij, {0,1}},
-    {{3,0}, Op_Mnoz, {0,3}},
-    {{4,8}, Op_Dziel, {1,0}},
-  };
+{ {{2,1}, Op_Dodaj, {1,2}},
+  {{1,0}, Op_Odejmij, {0,1}},
+  {{3,0}, Op_Mnoz, {0,3}},
+  {{4,8}, Op_Dziel, {1,0}},
+};
+
 
 /*
  * Analogicznie zdefiniuj test "trudne"
  *
  */
+
+static WyrazenieZesp  TestTrudny[] =
+{ {{9,-3}, Op_Dodaj, {-11,8}},
+  {{-4,-6}, Op_Odejmij, {5,-17}},
+  {{-4,5}, Op_Mnoz, {-5,4}},
+  {{5,-4}, Op_Dziel, {5,-5}},
+};
 
 
 
@@ -33,7 +41,7 @@ static WyrazenieZesp  TestLatwy[] =
  *    wskTabTestu  - wskaznik na tablice zawierajaca wyrazenia arytmetyczne
  *                   bedace przedmiotem testu,
  *    IloscElemTab - ilosc pytan w tablicy.
- *   
+ *
  * Warunki wstepne:
  *      - Parametr wskBazaTestu nie moze byc pustym wskaznikiem. Musi zawierac adres
  *        zmiennej reprezentujacej baze testu, ktora wczesniej zostal poprawnie
@@ -42,11 +50,11 @@ static WyrazenieZesp  TestLatwy[] =
  *      - Parametr IloscPytan zawiera wartosc, ktora nie przekracza ilosci elementow
  *        w tablicy dostepnej poprzez wskTabTestu.
  */
-void UstawTest( BazaTestu *wskBazaTestu, WyrazenieZesp *wskTabTestu, unsigned int IloscPytan )
+void UstawTest(BazaTestu* wskBazaTestu, WyrazenieZesp* wskTabTestu, unsigned int IloscPytan)
 {
-  wskBazaTestu->wskTabTestu = wskTabTestu;
-  wskBazaTestu->IloscPytan = IloscPytan;
-  wskBazaTestu->IndeksPytania = 0;
+    wskBazaTestu->wskTabTestu = wskTabTestu;
+    wskBazaTestu->IloscPytan = IloscPytan;
+    wskBazaTestu->IndeksPytania = 0;
 }
 
 
@@ -54,7 +62,7 @@ void UstawTest( BazaTestu *wskBazaTestu, WyrazenieZesp *wskTabTestu, unsigned in
 
 /*
  * Inicjalizuje test kojarzac zmienna dostepna poprzez wskaznik wskBazaTestu
- * z dana tablica wyrazen, ktora reprezentuje jeden z dwoch dopuszczalnych 
+ * z dana tablica wyrazen, ktora reprezentuje jeden z dwoch dopuszczalnych
  * testow.
  * Parametry:
  *    wskBazaTestu - wskaznik na zmienna reprezentujaca baze testu.
@@ -65,24 +73,30 @@ void UstawTest( BazaTestu *wskBazaTestu, WyrazenieZesp *wskTabTestu, unsigned in
  *        zmiennej reprezentujacej baze testu, ktora wczesniej zostal poprawnie
  *        zainicjalizowany poprzez wywolanie funkcji InicjalizujTest.
  *      - Parametr sNazwaTestu musi wskazywac na jedna z nazw tzn. "latwe" lub "trudne".
- *       
+ *
  * Zwraca:
  *       true - gdy operacja sie powiedzie i test zostanie poprawnie
  *              zainicjalizowany,
  *       false - w przypadku przeciwnym.
  */
-bool InicjalizujTest( BazaTestu  *wskBazaTestu, const char *sNazwaTestu )
+bool InicjalizujTest(BazaTestu* wskBazaTestu, const char* sNazwaTestu)
 {
-  if (!strcmp(sNazwaTestu,"latwy")) {
-    UstawTest(wskBazaTestu,TestLatwy,sizeof(TestLatwy)/sizeof(WyrazenieZesp));
-    return true;
-  }
-  /*
-   * Analogicznie zrob inicjalizacje dla testu trudne
-   */
+    if (!strcmp(sNazwaTestu, "latwy")) {
+        UstawTest(wskBazaTestu, TestLatwy, sizeof(TestLatwy) / sizeof(WyrazenieZesp));
+        return true;
+    }
+    /*
+     * Analogicznie zrob inicjalizacje dla testu trudne
+     */
 
-  cerr << "Otwarcie testu '" << sNazwaTestu << "' nie powiodlo sie." << endl;
-  return false;
+    if (!strcmp(sNazwaTestu, "trudny")) {
+        UstawTest(wskBazaTestu, TestTrudny, sizeof(TestTrudny) / sizeof(WyrazenieZesp));
+        return true;
+    }
+
+
+    cerr << "Otwarcie testu '" << sNazwaTestu << "' nie powiodlo sie." << endl;
+    return false;
 }
 
 
@@ -106,11 +120,11 @@ bool InicjalizujTest( BazaTestu  *wskBazaTestu, const char *sNazwaTestu )
  *              przypisane nowe wyrazenie zespolone z bazy,
  *       false - w przypadku przeciwnym.
  */
-bool PobierzNastpnePytanie( BazaTestu  *wskBazaTestu, WyrazenieZesp *wskWyrazenie )
+bool PobierzNastpnePytanie(BazaTestu* wskBazaTestu, WyrazenieZesp* wskWyrazenie)
 {
-  if (wskBazaTestu->IndeksPytania >= wskBazaTestu->IloscPytan) return false;
+    if (wskBazaTestu->IndeksPytania >= wskBazaTestu->IloscPytan) return false;
 
-  *wskWyrazenie = wskBazaTestu->wskTabTestu[wskBazaTestu->IndeksPytania];
-  ++wskBazaTestu->IndeksPytania;
-  return true;
+    *wskWyrazenie = wskBazaTestu->wskTabTestu[wskBazaTestu->IndeksPytania];
+    ++wskBazaTestu->IndeksPytania;
+    return true;
 }
