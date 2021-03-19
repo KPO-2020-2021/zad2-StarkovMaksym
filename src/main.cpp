@@ -33,11 +33,54 @@ int main(int argc, char **argv)
 
   WyrazenieZesp   WyrZ_PytanieTestowe;
   
-  while (PobierzNastpnePytanie(&BazaT,&WyrZ_PytanieTestowe)) {
+ /* while (PobierzNastpnePytanie(&BazaT,&WyrZ_PytanieTestowe)) {
     cout << " Czesc rzeczywista pierwszego argumentu: ";
     cout << WyrZ_PytanieTestowe.Arg1.re << endl;
-  }
+  }*/
 
+  LZespolona WynikL, Wczytane;
+  int a;
+  stat odpowiedzi;
+  odpowiedzi.poprawne = 0;
+  odpowiedzi.wszystkie = 0;
+
+  while (PobierzNastpnePytanie(&BazaT, &WyrZ_PytanieTestowe)) 
+  {
+      WynikL = Oblicz(WyrZ_PytanieTestowe);
+      cout << "Podaj wynik operacji: ";
+      Wyswietl(WyrZ_PytanieTestowe);
+      cout << endl << "Twoja odpowiedz: ";
+      cin >> Wczytane;
+      cout << endl;
+      while (cin.fail() && a < 2) 
+      {
+          cerr << "Bledny zapis liczby. Sprobuj jeszcze raz: ";
+          cin.clear();
+          cin.ignore(10000, '\n');
+          cin >> Wczytane;
+          cout << endl;
+          a++;
+      }
+      if (WynikL == Wczytane)
+      {
+          cout << "Odpowiedz poprawna" << endl;
+          odpowiedzi.poprawne++;
+          cin.clear();
+      }
+      else 
+      {
+          cout << "Blad. Prawidlowym wynikiem jest: ";
+          Wyswietl(WynikL);
+          cout << endl;
+      }
+      a = 0;
+      odpowiedzi.wczystkie++;
+      cout << endl;
+
+
+
+
+  }
   statystyka(odpowiedzi);
   cout << endl;
   cout << " Koniec testu" << endl;
