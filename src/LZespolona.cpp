@@ -1,6 +1,7 @@
 #include "LZespolona.hh"
 #include <cmath>
 
+//iugy7tyt
 #define MIN_DIFF 0.00001
 
 /*!
