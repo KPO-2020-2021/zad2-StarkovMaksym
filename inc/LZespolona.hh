@@ -1,6 +1,7 @@
 #ifndef LZESPOLONA_HH
 #define LZESPOLONA_HH
-
+using namespace std;
+#include <iostream>
 /*!
  *  Plik zawiera definicje struktury LZesplona oraz zapowiedzi
  *  przeciazen operatorow arytmetycznych dzialajacych na tej

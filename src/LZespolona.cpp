@@ -1,6 +1,7 @@
 #include "LZespolona.hh"
 #include <cmath>
-
+#include <iostream>
+using namespace std;
 #define MIN_DIFF 0.00001
 
 /*!

@@ -1,6 +1,6 @@
 #include <iostream>
 #include "BazaTestu.hh"
-
+#include "Statystyki.hh"
 using namespace std;
 
 
@@ -38,7 +38,7 @@ int main(int argc, char **argv)
     cout << WyrZ_PytanieTestowe.Arg1.re << endl;
   }
 
-  
+  statystyka(odpowiedzi);
   cout << endl;
   cout << " Koniec testu" << endl;
   cout << endl;
