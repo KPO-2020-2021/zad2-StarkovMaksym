@@ -10,29 +10,45 @@ using namespace std;
 
 
  /*
-  * Funkcja wyswietlania bez uzycia strumieni.
+  * Funkcja wyswietlania na strumieni.
   */
 ostream& operator << (ostream& StrmWyj, WyrazenieZesp&  WyrZ) 
 {
 	StrmWyj << WyrZ.Arg1;
 	switch (WyrZ.Op){
 	case Op_Dodaj:
-		StrmWyj << " + ";
+		StrmWyj << "+";
 		break;
 	case Op_Odejmij:
-		StrmWyj << " - ";
+		StrmWyj << "-";
 		break;
 	case Op_Mnoz:
-		StrmWyj << " * ";
+		StrmWyj << "*";
 		break;
 	case Op_Dziel:
-		StrmWyj << " / ";
+		StrmWyj << "/";
 		break;
 	}
 	StrmWyj << WyrZ.Arg2;
 	return StrmWyj;
 }
 
+// nieudala funkcja wczytywania
+/*istream& operator >> (istream& StrmWej, WyrazenieZesp&  WyrZ) 
+{       char Znak;
+        StrmWej >> WyrZ.Arg1;
+	SrtmWej >> Znak;
+	switch (Znak){
+        case '+':{break;}
+	case '-':{break;}
+	case '*':{break;}
+	case '/':{break;}
+	default:{throw runtime_error("Bledny operator wyrazenia zespolonego\n");
+	}
+	StrmWej >> WyrZ.Arg2;
+	return StrmWej;
+}
+*/
 
 
 /*
