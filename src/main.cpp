@@ -45,6 +45,7 @@ int main(int argc, char **argv)
   odpowiedzi.poprawne = 0;
   odpowiedzi.wszystkie = 0;
 
+  try{
   while (PobierzNastpnePytanie(&BazaT, &WyrZ_PytanieTestowe)) 
   {
     cin.clear();
@@ -74,14 +75,15 @@ int main(int argc, char **argv)
       a = 0;
       odpowiedzi.wszystkie++;
       cout << endl;
-
-
-
-
   }
+  
   statystyka(odpowiedzi);
   cout << endl;
   cout << " Koniec testu" << endl;
   cout << endl;
+  }
 
+  catch (runtime_error& e) {
+    cout << "Exeption occurred" << endl << e.what();
+  }
 }

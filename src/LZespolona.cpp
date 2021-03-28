@@ -91,8 +91,7 @@ LZespolona  operator / (LZespolona  Skl1, LZespolona  Skl2)
     LZespolona  Wynik;
     if ((Skl2.re == 0) && (Skl2.im == 0))
     {
-        cerr << " Nie mozna dzielic przez zero" << endl;
-        exit(-1);
+      throw runtime_error("Nie mozna dzielic przez zero\n");
     }
 
     Wynik.re = Skl1.re * Skl2.re - Skl1.im * Skl2.im;
@@ -144,8 +143,7 @@ LZespolona  operator / (LZespolona  Skl1, double  Skl2)
     LZespolona  Wynik;
     if (Skl2 == 0)
     {
-        cerr << " Nie mozna dzielic przez zero" << endl;
-        exit(-1);
+       throw runtime_error("Nie mozna dzielic przez zero\n");
     }
 
     Wynik.re = Skl1.re / Skl2;
@@ -166,8 +164,8 @@ void Wyswietl(LZespolona Skl1)
 
 
 ostream& operator << (ostream& StrmWyj, LZespolona& LZesp)
-{
-    StrmWyj << "(" << LZesp.re << showpos << LZesp.im << noshowpos << "i" << ")";
+{   StrmWyj.precision(2);
+  StrmWyj << "(" << std::fixed << LZesp.re << showpos << LZesp.im << noshowpos << "i" << ")";
     return StrmWyj;
 }
 

@@ -17,7 +17,7 @@ TEST_CASE("Test LZespolona dzielenie przez skalar 1") {
 
 TEST_CASE("Test LZespolona dzielenie przez skalar 2") {
     LZespolona x, y;
-    double t = 3;
+    double t = 2;
     
     x.re = 2;
     x.im = 2;
