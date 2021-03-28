@@ -12,24 +12,25 @@ using namespace std;
  /*
   * Funkcja wyswietlania bez uzycia strumieni.
   */
-void Wyswietl(WyrazenieZesp  WyrZ) 
+ostream& operator << (ostream& StrmWyj, WyrazenieZesp&  WyrZ) 
 {
-	cout << WyrZ.Arg1;
+	StrmWyj << WyrZ.Arg1;
 	switch (WyrZ.Op){
 	case Op_Dodaj:
-		cout << " + ";
+		StrmWyj << " + ";
 		break;
 	case Op_Odejmij:
-		cout << " - ";
+		StrmWyj << " - ";
 		break;
 	case Op_Mnoz:
-		cout << " * ";
+		StrmWyj << " * ";
 		break;
 	case Op_Dziel:
-		cout << " / ";
+		StrmWyj << " / ";
 		break;
 	}
-	cout << WyrZ.Arg2;
+	StrmWyj << WyrZ.Arg2;
+	return StrmWyj;
 }
 
 

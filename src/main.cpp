@@ -49,9 +49,7 @@ int main(int argc, char **argv)
   {
     cin.clear();
       WynikL = Oblicz(WyrZ_PytanieTestowe);
-      cout << "Podaj wynik operacji: ";
-      Wyswietl(WyrZ_PytanieTestowe);
-      cout << endl << "Twoja odpowiedz: ";
+      cout << "Podaj wynik operacji: " << WyrZ_PytanieTestowe << endl << "Twoja odpowiedz: ";
       cin >> Wczytane;
       cout << endl;
       while (cin.fail() && a < 2) 
@@ -71,9 +69,7 @@ int main(int argc, char **argv)
       }
       else 
       {
-          cout << "Blad. Prawidlowym wynikiem jest: ";
-          Wyswietl(WynikL);
-          cout << endl;
+          cout << "Blad. Prawidlowym wynikiem jest: " << WynikL << endl;
       }
       a = 0;
       odpowiedzi.wszystkie++;

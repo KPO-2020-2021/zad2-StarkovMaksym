@@ -14,6 +14,7 @@ static WyrazenieZesp  TestLatwy[] =
   {{1,0}, Op_Odejmij, {0,1}},
   {{3,0}, Op_Mnoz, {0,3}},
   {{4,8}, Op_Dziel, {1,0}},
+  {{0,0}, Op_Dziel, {1,1}},
 };
 
 
