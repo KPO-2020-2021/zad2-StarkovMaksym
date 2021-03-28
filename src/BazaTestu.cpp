@@ -81,7 +81,7 @@ void UstawTest(BazaTestu* wskBazaTestu, WyrazenieZesp* wskTabTestu, unsigned int
  */
 bool InicjalizujTest(BazaTestu* wskBazaTestu, const char* sNazwaTestu)
 {
-    if (strcmp(sNazwaTestu, "latwy")) {
+    if (!strcmp(sNazwaTestu, "latwy")) {
         UstawTest(wskBazaTestu, TestLatwy, sizeof(TestLatwy) / sizeof(WyrazenieZesp));
         return true;
     }
@@ -89,7 +89,7 @@ bool InicjalizujTest(BazaTestu* wskBazaTestu, const char* sNazwaTestu)
      * Analogicznie zrob inicjalizacje dla testu trudne
      */
 
-    if (strcmp(sNazwaTestu, "trudny")) {
+    if (!strcmp(sNazwaTestu, "trudny")) {
         UstawTest(wskBazaTestu, TestTrudny, sizeof(TestTrudny) / sizeof(WyrazenieZesp));
         return true;
     }

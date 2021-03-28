@@ -175,11 +175,11 @@ ostream& operator << (ostream& StrmWyj, LZespolona& LZesp)
 
 istream& operator >> (istream& StrmWej, LZespolona& LZesp)
 {
-    char Nawias, Litera;
-    StrmWej >> Nawias;
+  char Nawias1, Nawias2, Litera;
+    StrmWej >> Nawias1;
     if (StrmWej.fail())
         return StrmWej;
-    if (Nawias != '(') {
+    if (Nawias1 != '(') {
         StrmWej.setstate(ios::failbit);
         return StrmWej;
     }
@@ -192,14 +192,14 @@ istream& operator >> (istream& StrmWej, LZespolona& LZesp)
     StrmWej >> Litera;
     if (StrmWej.fail())
         return StrmWej;
-    if (Nawias != 'i') {
+    if (Litera != 'i') {
         StrmWej.setstate(ios::failbit);
         return StrmWej;
     }
-    StrmWej >> Nawias;
+    StrmWej >> Nawias2;
     if (StrmWej.fail())
         return StrmWej;
-    if (Nawias != ')') {
+    if (Nawias2 != ')') {
         StrmWej.setstate(ios::failbit);
         return StrmWej;
     }

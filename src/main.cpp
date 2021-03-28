@@ -40,13 +40,14 @@ int main(int argc, char **argv)
   }*/
 
   LZespolona WynikL, Wczytane;
-  int a;
+  int a = 0;
   staty odpowiedzi;
   odpowiedzi.poprawne = 0;
   odpowiedzi.wszystkie = 0;
 
   while (PobierzNastpnePytanie(&BazaT, &WyrZ_PytanieTestowe)) 
   {
+    cin.clear();
       WynikL = Oblicz(WyrZ_PytanieTestowe);
       cout << "Podaj wynik operacji: ";
       Wyswietl(WyrZ_PytanieTestowe);
