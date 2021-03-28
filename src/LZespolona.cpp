@@ -2,7 +2,7 @@
 #include <cmath>
 #include <iostream>
 using namespace std;
-#define MIN_DIFF 0.00001
+#define MIN_DIFF 0.01
 
 /*!
  * Realizuje porównanie dwoch liczb zespolonych.
@@ -126,7 +126,7 @@ double Modul2(LZespolona Skl1)
 {
     double  Wynik;
 
-    Wynik = abs((Skl1.re * Skl1.re) + (Skl1.re * Skl1.re));
+    Wynik = abs((Skl1.re * Skl1.re) + (Skl1.im * Skl1.im));
     return Wynik;
 }
 
