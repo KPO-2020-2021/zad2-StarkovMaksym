@@ -74,7 +74,7 @@ int main(int argc, char **argv)
           cout << endl;
       }
       a = 0;
-      odpowiedzi.wczystkie++;
+      odpowiedzi.wszystkie++;
       cout << endl;
 
 
