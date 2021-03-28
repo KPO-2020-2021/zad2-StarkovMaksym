@@ -10,13 +10,13 @@
  * Tu nalezy zdefiniowac funkcje, ktore definiuja model statystyki 
  */
 
-struct stat{
+struct staty{
 	int poprawne;
 	int wszystkie;
 };
 
 
-void statystyka(stat odpowiedzi);
+void statystyka(staty odpowiedzi);
 
 
 

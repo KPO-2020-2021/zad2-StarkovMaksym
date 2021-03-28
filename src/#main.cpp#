@@ -1,6 +1,5 @@
 #include <iostream>
 #include "BazaTestu.hh"
-#include "WyrazenieZesp.hh"
 #include "Statystyki.hh"
 using namespace std;
 
@@ -41,7 +40,7 @@ int main(int argc, char **argv)
 
   LZespolona WynikL, Wczytane;
   int a;
-  staty odpowiedzi;
+  stat odpowiedzi;
   odpowiedzi.poprawne = 0;
   odpowiedzi.wszystkie = 0;
 
@@ -75,7 +74,7 @@ int main(int argc, char **argv)
           cout << endl;
       }
       a = 0;
-      odpowiedzi.wszystkie++;
+      rowiedzi.wszystkie++;
       cout << endl;
 
 

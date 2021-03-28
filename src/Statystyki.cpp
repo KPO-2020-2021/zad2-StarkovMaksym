@@ -7,7 +7,7 @@ using namespace std;
  * w pliku naglowkowym.
  */
 
-void statystyka(stat odpowiedzi) 
+void statystyka(staty odpowiedzi) 
 {
 	cout << "Ilosc poprawnych odpowiedzi:" << odpowiedzi.poprawne << endl;
 	cout << "Ilosc blednych odpowiedzi:" << odpowiedzi.wszystkie - odpowiedzi.poprawne << endl;

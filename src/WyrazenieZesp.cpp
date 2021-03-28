@@ -39,18 +39,27 @@ void Wyswietl(WyrazenieZesp  WyrZ)
  */
 LZespolona Oblicz(WyrazenieZesp  WyrZ) 
 {
+  LZespolona wynik;
 	switch (WyrZ.Op) {
-	case Op_Dodaj: 
-		return WyrZ.Arg1 + WyrZ.Arg2;
-	break;
-	case Op_Odejmij:
-		return WyrZ.Arg1 - WyrZ.Arg2;
-	break;
-	case Op_Mnoz:
-		return WyrZ.Arg1 * WyrZ.Arg2;
-	break;
-	case Op_Dziel:
-		return WyrZ.Arg1 / WyrZ.Arg2;
+	case Op_Dodaj:{ 
+	        wynik = WyrZ.Arg1 + WyrZ.Arg2;
 	break;
 	}
+	case Op_Odejmij:{
+	        wynik = WyrZ.Arg1 - WyrZ.Arg2;
+	break;
+	}
+	case Op_Mnoz:{
+		wynik = WyrZ.Arg1 * WyrZ.Arg2;
+	break;
+	}
+	case Op_Dziel:{
+		wynik = WyrZ.Arg1 / WyrZ.Arg2;
+	break;
+	}
+	default: {
+	         wynik = WyrZ.Arg1;
+	}
+	}
+	return wynik;
 }
