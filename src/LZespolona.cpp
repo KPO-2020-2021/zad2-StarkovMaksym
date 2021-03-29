@@ -162,14 +162,12 @@ void Wyswietl(LZespolona Skl1)
 
 
 
-
-
-
 ostream& operator << (ostream& StrmWyj, LZespolona& LZesp)
 {   StrmWyj.precision(2);
   StrmWyj << "(" << std::fixed << LZesp.re << showpos << LZesp.im << noshowpos << "i" << ")";
     return StrmWyj;
 }
+
 
 
 
@@ -210,10 +208,7 @@ istream& operator >> (istream& StrmWej, LZespolona& LZesp)
 // Modyfikacja
 
 
-
-
-
-void Arg(LZespolona z)
+double Arg(LZespolona z)  // zmiana void na double dla uruchomienia doctests
 {
   double alfa;
   if (z.re > 0){
@@ -228,7 +223,8 @@ void Arg(LZespolona z)
     if (z.im == 0){
       throw runtime_error("Ardument jest nieokreslony");}
   }
-  cout << alfa;
+  //cout << alfa;
+  return alfa;
 }
 
 LZespolona operator += (LZespolona &Arg1, LZespolona const &Arg2)
@@ -242,3 +238,12 @@ LZespolona operator /= (LZespolona &Arg1, LZespolona const &Arg2)
   Arg1 = Arg1 / Arg2;
   return Arg1;
 }
+
+/*
+bool  operator == (double  Skl1, double  Skl2) {   
+  if (abs(Skl1 - Skl2) <= MIN_DIFF)
+      return true;
+    else
+      return false;
+}*/   
+

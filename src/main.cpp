@@ -25,13 +25,14 @@ int main(int argc, char **argv)
     cerr << " Inicjalizacja testu nie powiodla sie." << endl;
     return 1;
   }
-
-  /* Sprawdzenie modyfikacji
-LZesolona x, y;
+  /*
+  // Sprawdzenie modyfikacji
+LZespolona x, y;
+double kat;
 x.re = 2;
 x.im = 3;
 y.re = 4;
-y.im - 5;
+y.im = 5;
 x+=y;
 cout << "+=:" << x << endl; // prawidlowa 6+8i
 
@@ -44,9 +45,11 @@ cout << "/=:" << x << endl; // prawidlowa 2+1i
 
 x.re = 2;
 x.im = 3;
-Arg(x);   // prawidlowa 0.98
-
-   */
+//Arg(x); dla void   // prawidlowa 0.98
+kat = Arg(x);
+cout << "Arg = " << kat << endl; 
+  */
+   
 
   cout << endl;
   cout << " Start testu arytmetyki zespolonej: " << argv[1] << endl;

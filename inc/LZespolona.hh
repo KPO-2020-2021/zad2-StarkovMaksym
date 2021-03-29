@@ -76,10 +76,11 @@ istream& operator >> (istream&, LZespolona&);
 
 // Modyfikacja
 
-void Arg(LZespolona z);
+double Arg(LZespolona z); // zmiana void na double
 
 LZespolona operator += (LZespolona &Arg1, LZespolona const &Arg2);
 
 LZespolona operator /= (LZespolona &Arg1, LZespolona const &Arg2);
 
+//bool  operator == (double  Skl1, double  Skl2);
 #endif
