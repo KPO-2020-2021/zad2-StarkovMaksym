@@ -94,8 +94,8 @@ LZespolona  operator / (LZespolona  Skl1, LZespolona  Skl2)
       throw runtime_error("Nie mozna dzielic przez zero\n");
     }
 
-    Wynik.re = Skl1.re * Skl2.re - Skl1.im * Skl2.im;
-    Wynik.im = Skl1.re * Skl2.im + Skl1.im * Skl2.re;
+    Wynik.re = ((Skl1.re * Skl2.re + Skl1.im * Skl2.im) / (Skl2.re*Skl2.re + Skl2.im * Skl2.im));
+    Wynik.im = ((Skl1.im * Skl2.re - Skl1.re * Skl2.im) / (Skl2.re*Skl2.re + Skl2.im * Skl2.im));
     return Wynik;
 }
 

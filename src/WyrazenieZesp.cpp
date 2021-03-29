@@ -1,4 +1,5 @@
 #include "WyrazenieZesp.hh"
+#include "LZespolona.hh"
 #include <iostream>
 using namespace std;
 
@@ -10,7 +11,7 @@ using namespace std;
 
 
  /*
-  * Funkcja wyswietlania na strumieni.
+  * Funkcja wyswietlania wyrazenia zespolonego na strumieni.
   */
 ostream& operator << (ostream& StrmWyj, WyrazenieZesp&  WyrZ) 
 {
@@ -33,22 +34,26 @@ ostream& operator << (ostream& StrmWyj, WyrazenieZesp&  WyrZ)
 	return StrmWyj;
 }
 
-// nieudala funkcja wczytywania
-/*istream& operator >> (istream& StrmWej, WyrazenieZesp&  WyrZ) 
+// funkcja wczytywania wyrazenia zespolonego ze strumienia
+istream& operator >> (istream& StrmWej, WyrazenieZesp&  WyrZ) 
 {       char Znak;
         StrmWej >> WyrZ.Arg1;
-	SrtmWej >> Znak;
+	StrmWej >> Znak;
 	switch (Znak){
-        case '+':{break;}
-	case '-':{break;}
-	case '*':{break;}
-	case '/':{break;}
-	default:{throw runtime_error("Bledny operator wyrazenia zespolonego\n");
+        case '+':{WyrZ.Op = Op_Dodaj;
+	    break;}
+	case '-':{WyrZ.Op = Op_Odejmij;
+	    break;}
+	case '*':{WyrZ.Op = Op_Mnoz;
+	    break;}
+	case '/':{WyrZ.Op = Op_Dziel;
+	    break;}
+	default:{throw runtime_error("Bledny operator wyrazenia zespolonego\n");}
 	}
 	StrmWej >> WyrZ.Arg2;
 	return StrmWej;
 }
-*/
+
 
 
 /*

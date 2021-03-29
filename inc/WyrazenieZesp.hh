@@ -30,8 +30,8 @@ struct WyrazenieZesp {
 
 //void Wyswietl(WyrazenieZesp  WyrZ);
 
-ostream& operator << (ostream&, WyrazenieZesp&); //funkcja wyswietlania
-//istream& operator >> (istream&, WyrazenieZesp&); nieudala funkcja wczytywania
+ostream& operator << (ostream&, WyrazenieZesp&); //funkcja wyswietlania wyrazenia zespolonego
+istream& operator >> (istream&, WyrazenieZesp&); //funkcja wyswietlania wyrazenia zespolonego
 LZespolona Oblicz(WyrazenieZesp  WyrZ); //funkcja obliczania wyrazen zespolonych
 
 #endif
