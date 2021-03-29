@@ -1,8 +1,10 @@
 #include "LZespolona.hh"
 #include <cmath>
 #include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 #define MIN_DIFF 0.01
+#define PI 3.14
 
 /*!
  * Realizuje porównanie dwoch liczb zespolonych.
@@ -202,4 +204,41 @@ istream& operator >> (istream& StrmWej, LZespolona& LZesp)
         return StrmWej;
     }
     return StrmWej;
+}
+
+
+// Modyfikacja
+
+
+
+
+
+void Arg(LZespolona z)
+{
+  double alfa;
+  if (z.re > 0){
+    alfa = atan2(z.im, z.re);}
+  if (z.re < 0){
+    alfa = atan2(z.im, z.re) + PI;}
+  if (z.re == 0){
+    if (z.im > 0){
+      alfa = PI/2;}
+    if (z.im < 0){
+      alfa = -1 * (PI/2);}
+    if (z.im == 0){
+      throw runtime_error("Ardument jest nieokreslony");}
+  }
+  cout << alfa;
+}
+
+LZespolona operator += (LZespolona &Arg1, LZespolona const &Arg2)
+{
+  Arg1 = Arg1 + Arg2;
+  return Arg1;
+}
+
+LZespolona operator /= (LZespolona &Arg1, LZespolona const &Arg2)
+{
+  Arg1 = Arg1 / Arg2;
+  return Arg1;
 }

@@ -26,8 +26,28 @@ int main(int argc, char **argv)
     return 1;
   }
 
+  /* Sprawdzenie modyfikacji
+LZesolona x, y;
+x.re = 2;
+x.im = 3;
+y.re = 4;
+y.im - 5;
+x+=y;
+cout << "+=:" << x << endl; // prawidlowa 6+8i
 
-  
+x.re = 1;
+x.im = 8;
+y.re = 2;
+y.im = 3;
+x/=y;
+cout << "/=:" << x << endl; // prawidlowa 2+1i
+
+x.re = 2;
+x.im = 3;
+Arg(x);   // prawidlowa 0.98
+
+   */
+
   cout << endl;
   cout << " Start testu arytmetyki zespolonej: " << argv[1] << endl;
   cout << endl;
@@ -45,7 +65,7 @@ int main(int argc, char **argv)
   odpowiedzi.poprawne = 0;
   odpowiedzi.wszystkie = 0;
 
-  try{
+   try{
   while (PobierzNastpnePytanie(&BazaT, &WyrZ_PytanieTestowe)) 
   {
     cin.clear();

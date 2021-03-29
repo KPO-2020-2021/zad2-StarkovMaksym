@@ -72,4 +72,14 @@ ostream& operator << (ostream&, LZespolona&);
  */
 istream& operator >> (istream&, LZespolona&);
 
+
+
+// Modyfikacja
+
+void Arg(LZespolona z);
+
+LZespolona operator += (LZespolona &Arg1, LZespolona const &Arg2);
+
+LZespolona operator /= (LZespolona &Arg1, LZespolona const &Arg2);
+
 #endif
